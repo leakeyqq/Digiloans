@@ -65,7 +65,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <EditText
+<<<<<<< HEAD
                 android:id="@+id/inputConfirmPassword"
+=======
+                android:id="@+id/inputPassword"
+>>>>>>> 81e854d (Initial commit)
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -94,8 +98,13 @@
                 android:text="Forgot Password?"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+<<<<<<< HEAD
                 app:layout_constraintEnd_toEndOf="@+id/inputConfirmPassword"
                 app:layout_constraintTop_toBottomOf="@+id/inputConfirmPassword" />
+=======
+                app:layout_constraintEnd_toEndOf="@+id/inputPassword"
+                app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+>>>>>>> 81e854d (Initial commit)
 
             <Button
                 android:id="@+id/btnLogin"
@@ -106,7 +115,11 @@
                 android:text="Login"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/forgotPassword"
+<<<<<<< HEAD
                 app:layout_constraintStart_toStartOf="@+id/inputConfirmPassword"
+=======
+                app:layout_constraintStart_toStartOf="@+id/inputPassword"
+>>>>>>> 81e854d (Initial commit)
                 app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
 
             <TextView
