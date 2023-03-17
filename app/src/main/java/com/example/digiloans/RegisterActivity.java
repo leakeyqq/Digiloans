@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class RegisterActivity extends AppCompatActivity {
 
     TextView alreadyHaveaccount;
-    EditText inputEmail, inputPassword, inputConfirmPassword;
+    EditText inputEmail, inputPassword, inputConfirmPassword, inputPhoneNumber, inputIdNumber;
     Button btnRegister;
     String emailPattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
     ProgressDialog progressDialog;
@@ -37,7 +37,8 @@ public class RegisterActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         alreadyHaveaccount = findViewById(R.id.wantToLogin);
-
+        inputPhoneNumber = findViewById(R.id.inputTelephone);
+        inputIdNumber = findViewById(R.id.inputIdnumber);
         inputEmail = findViewById(R.id.inputEmail);
         inputPassword = findViewById(R.id.inputPassword);
         inputConfirmPassword = findViewById(R.id.inputConfirmPassword);
@@ -62,11 +63,19 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void performAuth() {
+        String telephone = inputPhoneNumber.getText().toString();
+        String idnumber = inputIdNumber.getText().toString();
         String email = inputEmail.getText().toString();
         String password = inputPassword.getText().toString();
         String confirmPassword = inputConfirmPassword.getText().toString();
 
-        if(!email.matches(emailPattern)){
+
+
+        if(telephone.isEmpty() || telephone.length()!=10 || !telephone.matches("^[0-9]+$")){
+            inputPhoneNumber.setError("Phone number should be 10 digits!");
+        }else if(idnumber.isEmpty() || idnumber.length()!=8 || !idnumber.matches("^[0-9]+$")){
+            inputIdNumber.setError("National ID number should be 8 digits!");
+        }else if(!email.matches(emailPattern)){
             inputEmail.setError("Enter a correct email format!");
         }else if(!password.equals(confirmPassword)){
             inputConfirmPassword.setError("Passwords do not match");
