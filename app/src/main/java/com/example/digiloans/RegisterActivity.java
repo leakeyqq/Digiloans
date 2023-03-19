@@ -19,8 +19,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
+
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://digiloans-e4218-default-rtdb.firebaseio.com/");
+    //DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
 
     TextView alreadyHaveaccount;
     EditText inputEmail, inputPassword, inputConfirmPassword, inputPhoneNumber, inputIdNumber;
@@ -71,9 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-        if(telephone.isEmpty() || telephone.length()!=10 || !telephone.matches("^[0-9]+$")){
+        if(telephone.length() != 10 || !telephone.matches("^[0-9]+$")){
             inputPhoneNumber.setError("Phone number should be 10 digits!");
-        }else if(idnumber.isEmpty() || idnumber.length()!=8 || !idnumber.matches("^[0-9]+$")){
+        }else if(idnumber.length() != 8 || !idnumber.matches("^[0-9]+$")){
             inputIdNumber.setError("National ID number should be 8 digits!");
         }else if(!email.matches(emailPattern)){
             inputEmail.setError("Enter a correct email format!");
@@ -91,6 +97,13 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+
+                        //Store customer information in our database
+                        databaseReference.child("users").child(idnumber).child("email").setValue(email);
+                        databaseReference.child("users").child(idnumber).child("telephone").setValue(telephone);
+                        databaseReference.child("users").child(idnumber).child("idNumber").setValue(idnumber);
+
+
                         progressDialog.dismiss();
                         sendUserToNextActivity();
                         Toast.makeText(RegisterActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
