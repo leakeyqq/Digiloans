@@ -25,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegisterActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://digiloans-e4218-default-rtdb.firebaseio.com/");
-    //DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
     TextView alreadyHaveaccount;
@@ -35,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,11 +98,12 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
 
+                        String theUserId = mUser.getUid();
                         //Store customer information in our database
-                        databaseReference.child("users").child(idnumber).child("email").setValue(email);
-                        databaseReference.child("users").child(idnumber).child("telephone").setValue(telephone);
-                        databaseReference.child("users").child(idnumber).child("idNumber").setValue(idnumber);
-                        databaseReference.child("users").child(idnumber).child("crbStatus").setValue("good");
+                        databaseReference.child("users").child(theUserId).child("email").setValue(email);
+                        databaseReference.child("users").child(theUserId).child("telephone").setValue(telephone);
+                        databaseReference.child("users").child(theUserId).child("idNumber").setValue(idnumber);
+                        databaseReference.child("users").child(theUserId).child("crbStatus").setValue("good");
 
 
 
