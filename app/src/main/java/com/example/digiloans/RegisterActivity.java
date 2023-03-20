@@ -102,6 +102,8 @@ public class RegisterActivity extends AppCompatActivity {
                         databaseReference.child("users").child(idnumber).child("email").setValue(email);
                         databaseReference.child("users").child(idnumber).child("telephone").setValue(telephone);
                         databaseReference.child("users").child(idnumber).child("idNumber").setValue(idnumber);
+                        databaseReference.child("users").child(idnumber).child("crbStatus").setValue("good");
+
 
 
                         progressDialog.dismiss();
