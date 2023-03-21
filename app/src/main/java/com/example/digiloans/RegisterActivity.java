@@ -104,6 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
                         databaseReference.child("users").child(theUserId).child("telephone").setValue(telephone);
                         databaseReference.child("users").child(theUserId).child("idNumber").setValue(idnumber);
                         databaseReference.child("users").child(theUserId).child("crbStatus").setValue("good");
+                        databaseReference.child("users").child(theUserId).child("creditScore").setValue(0.5);
 
 
 
