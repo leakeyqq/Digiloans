@@ -155,4 +155,27 @@
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/loanLimitHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dashboardHead"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/alatsi"
+        android:text="My loan limit Kshs 5,000"
+        android:textColor="@color/white"
+        android:textSize="21sp" />
+    <TextView
+        android:layout_below="@id/loanLimitHead"
+        android:id="@+id/creditScoreHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My credit score 50/100"
+        android:fontFamily="@font/alatsi"
+        android:textColor="@color/white"
+        android:textSize="21sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>
