@@ -100,13 +100,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                         String theUserId = mUser.getUid();
                         //Store customer information in our database
-                        databaseReference.child("users").child(theUserId).child("email").setValue(email);
-                        databaseReference.child("users").child(theUserId).child("telephone").setValue(telephone);
-                        databaseReference.child("users").child(theUserId).child("idNumber").setValue(idnumber);
-                        databaseReference.child("users").child(theUserId).child("crbStatus").setValue("good");
-                        databaseReference.child("users").child(theUserId).child("creditScore").setValue(0.5);
-
-
+                        databaseReference.child("users").child(theUserId).child("profile").child("email").setValue(email);
+                        databaseReference.child("users").child(theUserId).child("profile").child("telephone").setValue(telephone);
+                        databaseReference.child("users").child(theUserId).child("profile").child("idNumber").setValue(idnumber);
+                        databaseReference.child("users").child(theUserId).child("profile").child("crbStatus").setValue("good");
+                        databaseReference.child("users").child(theUserId).child("profile").child("creditScore").setValue(0.5);
+                        databaseReference.child("users").child(theUserId).child("profile").child("loanLimit").setValue(5000);
 
                         progressDialog.dismiss();
                         sendUserToNextActivity();
