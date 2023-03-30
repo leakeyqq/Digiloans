@@ -105,8 +105,7 @@
                 android:padding="10px"
                 app:layout_constraintEnd_toEndOf="@+id/inputMpesaNumber"
                 app:layout_constraintStart_toStartOf="@+id/inputMpesaNumber"
-                app:layout_constraintTop_toBottomOf="@+id/inputMpesaNumber"
-                android:checkedButton="@id/for14days">
+                app:layout_constraintTop_toBottomOf="@+id/inputMpesaNumber">
 
                 <RadioButton
                     android:id="@+id/for14days"
